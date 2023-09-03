@@ -1,0 +1,51 @@
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+    }
+}
+
+public class searchKey {
+    Node head;
+
+    // Inserts a new node at the front of the list
+    public void push(int newitem) {
+        Node newdata = new Node(newitem);
+        newdata.next = head;
+        head = newdata;
+    }
+
+    // Checks whether the value x is present in linked list
+    public boolean search(Node head, int key) {
+        Node curr = head;
+
+        while (curr != null) {
+            if (curr.data == key)
+                return true; // found data
+
+            curr = curr.next;
+        }
+
+        return false; // not found
+    }
+
+    public static void main(String[] args) {
+
+        searchKey llist = new searchKey();
+        llist.push(21);
+        llist.push(22);
+        llist.push(11);
+        llist.push(43);
+        llist.push(23);
+
+        if (llist.search(llist.head, 50))
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+
+    }
+
+}
