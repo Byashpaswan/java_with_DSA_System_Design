@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class balanceParentheses {
+
+    static boolean isBalance(String s) {
+        Stack<Character> st = new Stack<Character>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{')
+                st.push(c);
+
+            else {
+                if (st.empty())
+                    return false;
+                else if (c == ')' && st.peek() != '(')
+                    return false;
+
+                else if (c == ']' && st.peek() != '[')
+                    return false;
+
+                else if (c == '}' && st.peek() != '{')
+                    return false;
+
+                else
+                    st.pop();
+
+            }
+        }
+        return st.empty();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Please Enter parenthesis ");
+
+        
+        Scanner sc = new Scanner(System.in);
+        // check if there is any input available
+        if (sc.hasNextLine()) {
+            String s = sc.nextLine();
+
+            if (isBalance(s))
+                System.out.println("The parenthesis is balanced ");
+            else
+                System.out.println("The parenteheses is not balanced ");
+        }
+    }
+
+}
