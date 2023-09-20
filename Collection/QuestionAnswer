@@ -1,0 +1,73 @@
+1 what is collection Framork?
+Ans: Collection Framework is a combination of classes and interface, which is used to store and manipulate the
+data in the form of objects. It provides various classes such as ArrayList, Vector, Stack, and HashSet, etc. and
+interfaces such as List, Queue, Set, etc. for this purpose.
+
+2 What is the difference between ArrayList and LinkedList?
+Ans:
+   ArrayList                                                                                                  LinkedList
+->ArrayList internally uses a dynamic array to store the elements.                   -> LinkedList internally uses a doubly linked list to store the elements.
+->Manipulation with ArrayList is slow because it internally uses an array. 
+If any element is removed from the array, all the other elements are shifted in memory.   -> Manipulation with LinkedList is faster than ArrayList because it uses a doubly linked list, so no bit shifting is required in memory.
+
+->An ArrayList class can act as a list only because it implements List only.          ->  LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+->ArrayList is better for storing and accessing data.                                 ->    LinkedList is better for manipulating data.
+->The memory location for the elements of an ArrayList is contiguous.                 -> The location for the elements of a linked list is not contagious.
+->Generally, when an ArrayList is initialized,                                        -> There is no case of default capacity in a LinkedList. In LinkedList, an empty list is created when a LinkedList is initialized.
+  a default capacity of 10 is assigned to the ArrayList.
+
+3.What is the difference between Iterator and ListIterator?
+ans:
+  Iterator                                                                                      ListIterator
+=>Can traverse elements present in Collection only in the forward direction             => Can traverse elements present in Collection both in forward and backward directions.
+=>helps to traverse Map, List and Set.                                                  => Can only traverse List and not the other two.
+=>Indexes cannot be obtained by using Iterator.                                        => It has methods like nextIndex() and previousIndex() to obtain indexes of elements at any time while traversing List.
+=>Cannot modify or replace elements present in Collection                              => We can modify or replace elements with the help of set(E e)
+=>Cannot add elements and it throws ConcurrentModificationException.                   =>Can easily add elements to a collection at any time.
+=>Certain methods of Iterator are next(), remove() and hasNext().                      => Certain methods of ListIterator are next(), previous(), hasNext(), hasPrevious(), add(E e).
+
+4 What is the difference between Iterator and Enumeration?
+ans:
+         Iterator                                                                      Enumeration
+=>Iterator is a universal cursor as it is applicable for all the collection classes.  =>Enumeration is not a universal cursor as it applies only to legacy classes.
+=>Iterator has the remove() method.                                                   =>Enumeration does not have the remove() method.
+=>Iterator can do modifications (e.g using remove() method                             =>Enumeration interface acts as a read only interface, one can not do any modifications to Collection while traversing the elements of the Collection.
+   it removes the element from the Collection during traversal).                    
+=>Iterator is not a legacy interface. Iterator can be used for the traversal of HashMap, =>Enumeration is a legacy interface which is used for traversing Vector, Hashtable.
+                LinkedList, ArrayList, HashSet, TreeMap, TreeSet .
+
+5:What is the difference between List and Set?
+    List
+ans:The List interface allows storing the ordered collection. It is a child interface of Collection.
+It is an ordered collection of objects in which duplicate values are allowed to store.
+List preserves the insertion order, it allows positional access and insertion of elements.
+  set
+The set interface in the java.util package and extends Collection interface is an unordered collection of objects in which duplicate values cannot be stored. 
+It is an interface that implements the maths set. This interface contains the methods inherited from the Collection interface and adds a feature that restricts to insert the duplicate elements. 
+
+
+6. What is the difference between HashSet and TreeSet?
+  ans:
+HashSet in java is a class implementing the Set interface, backed by a hash table which is actually a HashMap instance.
+This class permits the null element. The class also offers constant time performance for the basic operations like add, remove, contains, and
+size assuming the hash function disperses the elements properly among the buckets while TreeSet is an implementation of the SortedSet interface
+which as the name suggests uses the tree for storage purposes where here the ordering of the elements is maintained by a set using their natural ordering
+whether or not an explicit comparator is provided.
+1. Speed and internal implementation 
+For operations like search, insert, and delete HashSet takes constant time for these operations on average. 
+HashSet is faster than TreeSet. HashSet is Implemented using a hash table. 
+TreeSet takes O(Log n) for search, insert and delete which is higher than HashSet. But TreeSet keeps sorted data. Also, 
+it supports operations like higher() (Returns least higher element), floor(), ceiling(), etc. These operations are also O(Log n) in TreeSet and not supported in HashSet. 
+TreeSet is implemented using a self-balancing binary search tree (Red-Black Tree). TreeSet is backed by TreeMap in Java.
+
+2. Ordering 
+Elements in HashSet are not ordered. TreeSet maintains objects in Sorted order defined by either Comparable or Comparator method in Java. 
+TreeSet elements are sorted in ascending order by default. It offers several methods to deal with the ordered set like first(), last(), headSet(), tailSet(), etc.
+3. Null Object 
+HashSet allows null object. TreeSet doesn’t allow null Object and throw NullPointerException, Why, because TreeSet uses compareTo() method to compare keys and compareTo() will throw java.lang.NullPointerException
+4. Comparison 
+HashSet uses the equals() method to compare two objects in Set and for detecting duplicates.
+TreeSet uses compareTo() method for same purpose. If equals() and compareTo() are not consistent, i.e. 
+for two equal objects equals should return true while compareTo() should return zero, then it will break the contract of Set interface and will allow duplicates in Set implementations like TreeSet
+
+
