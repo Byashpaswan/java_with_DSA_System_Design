@@ -1,0 +1,164 @@
+1.Explain different types of Errors in java.
+
+ Ans: In any programming language we categorised error into 2 types
+  1.Syntax Error/CompileTime Mistake
+` 2.Logical Error/RunTimeMistakes
+
+Syntax Errors or Compilation Errors: 
+These occur when the code violates the rules of the Java syntax. These errors are usually caught by the Java compiler during the compilation phase.
+ 
+Runtime Errors:
+These errors occur when the code encounters an unexpected behaviour during its execution. These errors are usually caused by flawed logic or
+incorrect assumptions in the code and can be difficult to identify and fix.
+ 
+Logical Errors: 
+These occur when the program is executing correctly, but the result is not what was intended.
+These errors can be difficult to identify and fix, as the program is running correctly but producing unintended results.
+ 
+Linking Errors:
+Linking errors occur when the Java Virtual Machine (JVM) tries to link a class file during runtime but encounters a problem.
+This can happen if a required class or library is missing, or 
+if there is a problem with the syntax or format of the code. 
+ 
+Class Loading Errors:
+Class loading errors occur when the JVM attempts to load a class into memory but encounters a problem. 
+This can happen if the class file is missing or corrupted, or if there is a problem with the classpath.
+
+Runtime Error
+Runtime errors in Java occur when a program is running and encounters an unexpected condition or action that cannot be handled by the program.
+They are one of the most time-consuming types of errors in Java that a programmer encounters. These can even hang the entire program.
+These errors cannot be detected during compilation because they are related to the runtime behaviour of the program. A runtime error in Java is also known as an exception.
+
+
+2.What is an Exceptaion in java ?
+ans:
+ An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions.
+When an error occurs within a method, the method creates an object and hands it off to the runtime system. The object, called an exception object,
+contains information about the error, including its type and the state of the program when the error occurred. 
+Creating an exception object and handing it to the runtime system is called throwing an exception
+
+3. How can you handle exceptions in java?Explain with an example.
+import java.io.*;
+  
+class test {
+    public static void main (String[] args) {
+      int a=5;
+      int b=0;
+        try{
+          System.out.println(a/b);
+        }
+      catch(ArithmeticException e){
+        e.printStackTrace();
+      }
+    }
+}
+
+
+4.Why do we need excepaion handling in java?
+ans:
+The Exception Handling in Java is one of the powerful mechanism to handle the runtime errors so that the normal flow of the application can be maintained.
+5.What is the difference between exception and error in java?
+               Errors	                                                                              Exceptions
+Recovering from Error is not possible.                              	   We can recover from exceptions by either using try-catch block or throwing exceptions back to the caller.
+All errors in java are unchecked type.	                                 Exceptions include both checked as well as unchecked type.
+Errors are mostly caused by the environment in which program is running.	Program itself is responsible for causing exceptions.
+Errors can occur at compile time.                                         Unchecked exceptions occurs at runtime whereas checked exceptions occurs at comile time
+They are defined in java.lang.Error package.	                            They are defined in java.lang.Exception package
+Examples :
+java.lang.StackOverflowError, java.lang.OutOfMemoryError	            Examples :  Checked Exceptions SQLException, IOException Unchecked Exceptions : ArrayIndexOutOfBoundException, NullPointerException, ArithmeticException.
+
+5.Name the different types of exceptions in Java.
+ ans:
+1 Built-in Exceptions:
+ 
+Built-in exceptions are the exceptions that are available in Java libraries. These exceptions are suitable to explain certain error situations. 
+Below is the list of important built-in exceptions in Java. 
+
+ =>ArithmeticException:   It is thrown when an exceptional condition has occurred in an arithmetic operation.
+ =>ArrayIndexOutOfBoundsException:   It is thrown to indicate that an array has been accessed with an illegal index. The index is either negative or greater than or equal to the size of the array.
+=> ClassNotFoundException:    This Exception is raised when we try to access a class whose definition is not found
+=> FileNotFoundException:    This Exception is raised when a file is not accessible or does not open.
+=> IOException:                    It is thrown when an input-output operation failed or interrupted
+=>InterruptedException:   It is thrown when a thread is waiting, sleeping, or doing some processing, and it is interrupted.
+=>NoSuchFieldException:   It is thrown when a class does not contain the field (or variable) specified
+=>NoSuchMethodException:   It is thrown when accessing a method that is not found.
+=>NullPointerException:   This exception is raised when referring to the members of a null object. Null represents nothing
+=>NumberFormatException:   This exception is raised when a method could not convert a string into a numeric format.
+=>RuntimeException:    This represents an exception that occurs during runtime.
+=>StringIndexOutOfBoundsException:  It is thrown by String class methods to indicate that an index is either negative or greater than the size of the string
+=>IllegalArgumentException :   This exception will throw the error or error statement when the method receives an argument which is not accurately fit to the given relation or condition. It comes under the unchecked exception. 
+=>IllegalStateException :    This exception will throw an error or error message when the method is not accessed for the particular operation in the application. It comes under the unchecked exception.
+
+2.User-Defined Exceptions
+Sometimes, the built-in exceptions in Java are not able to describe a certain situation. In such cases, the user can also create exceptions which are called ‘user-defined Exceptions’. 
+
+The following steps are followed for the creation of a user-defined Exception. 
+
+The user should create an exception class as a subclass of the Exception class. Since all the exceptions are subclasses of the Exception class, the user should also make his class a subclass of it. This is done as: 
+class MyException extends Exception
+We can write a default constructor in his own exception class. 
+MyException(){}
+We can also create a parameterized constructor with a string as a parameter. 
+We can use this to store exception details. We can call the superclass(Exception) constructor from this and send the string there. 
+MyException(String str)
+{
+   super(str);
+}
+To raise an exception of a user-defined type, we need to create an object to his exception class and throw it using the throw clause, as: 
+MyException me = new MyException(“Exception details”);
+throw me;
+
+// Java program to demonstrate user defined exception
+
+// This program throws an exception whenever balance
+// amount is below Rs 1000
+class MyException extends Exception
+{
+	//store account information
+	private static int accno[] = {1001, 1002, 1003, 1004};
+
+	private static String name[] =
+				{"Nish", "Shubh", "Sush", "Abhi", "Akash"};
+
+	private static double bal[] =
+		{10000.00, 12000.00, 5600.0, 999.00, 1100.55};
+
+	// default constructor
+	MyException() { }
+
+	// parameterized constructor
+	MyException(String str) { super(str); }
+
+	// write main()
+	public static void main(String[] args)
+	{
+		try {
+			// display the heading for the table
+			System.out.println("ACCNO" + "\t" + "CUSTOMER" +
+										"\t" + "BALANCE");
+
+			// display the actual account information
+			for (int i = 0; i < 5 ; i++)
+			{
+				System.out.println(accno[i] + "\t" + name[i] +
+											"\t" + bal[i]);
+
+				// display own exception if balance < 1000
+				if (bal[i] < 1000)
+				{
+					MyException me =
+					new MyException("Balance is less than 1000");
+					throw me;
+				}
+			}
+		} //end of try
+
+		catch (MyException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+7.Can we just use try instead of finally and catch blocks? Give an example .
+Ans: No, doing so will show a compilation error. Catch or finally block must always accompany try block. We
+can remove either finally block or catch block, but never both.
