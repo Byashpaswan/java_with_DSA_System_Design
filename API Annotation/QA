@@ -1,0 +1,158 @@
+1. program to display current date and time in java.
+   Ans:
+import java.time.*;
+public class DateTime {
+public static void main(String[] args) {
+LocalDate date = LocalDate.now();
+System.out.println(date);
+LocalTime time=LocalTime.now();
+System.out.println(time);
+}
+}
+
+2. Write a program to convert a date to a string in the format "MM/dd/yyyy".
+ ans.
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+public class DateToString {
+public static void main(String[] args) {
+LocalDate date = LocalDate.of(2023, 4, 4);
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+String formattedDate = date.format(formatter);
+System.out.println("Formatted Date: " + formattedDate);
+  }
+}
+
+
+3. What is the difference between collections and streams?Explain with an Example
+ans:
+Collection is an in-memory data structure, which holds all the values that the data structure currently has. 
+Every element in the Collection has to be computed before we add it to the Collection. Operations such as searching, sorting, insertion, manipulation, and deletion can be performed on a Collection. 
+It provides many interfaces like (Set, List, Queue, Deque) and Classes like (ArrayList, Vector, LinkedList, PriorityQueue, HashSet).
+
+On the other hand, 
+IStream is an API that is introduced in Java 8 which is used to process collections of objects. A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
+The Stream API is used to process collections of objects.
+
+Main features of the Java stream are as follows:
+
+A stream is not a data structure instead it takes input from the Collections, Arrays, or I/O channels.
+Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+Each intermediate operation is lazily executed and returns another stream as a result, hence various intermediate operations can be pipelined.
+Terminal operations mark the end of the stream and return the result
+
+
+// Java Program to Illustrate Collection
+
+// Importing required classes
+import java.io.*;
+import java.util.*;
+
+// Main class
+class test {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+		// Creating an instance of list
+		List<String> CompanyList = new ArrayList<>();
+
+		// Adding elements using add() method
+		CompanyList.add("Google");
+		CompanyList.add("Apple");
+		CompanyList.add("Microsoft");
+
+		// Now creating a comparator
+		Comparator<String> com
+			= (String o1, String o2) -> o1.compareTo(o2);
+
+		// Sorting the list
+		Collections.sort(CompanyList, com);
+
+		// Iterating using for each loop
+		for (String name : CompanyList) {
+
+			// Printing the elements
+			System.out.println(name);
+		}
+	}
+}
+
+
+
+
+
+
+// Java Program to Demonstrate streams
+
+// Importing required classes
+import java.io.*;
+import java.util.*;
+
+// Main class
+class test {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+		// Creating an empty Arraylist
+		List<String> CompanyList = new ArrayList<>();
+
+		// Adding elements to above ArrayList
+		CompanyList.add("Google");
+		CompanyList.add("Apple");
+		CompanyList.add("Microsoft");
+
+		// Sorting the list
+		// using sorted() method and
+		// printing using for-each loop
+		CompanyList.stream().sorted().forEach(
+			System.out::println);
+	}
+}
+
+
+
+
+
+4. What is enums in java? explain with an example
+
+ans:
+ We can use enum to define a group of named constants.
+Enums are used to represent a collection of related constants that have a common purpose. Each constant in an
+enum is an instance of the enum type, and they are typically defined as public static final fields.
+Here's an example of how to define an enum in Java:
+
+class EnumDemo{
+public enum DayOfWeek {
+MONDAY,
+TUESDAY,
+WEDNESDAY,
+THURSDAY,
+FRIDAY,
+SATURDAY,
+SUNDAY
+}
+public static void main(String args[]){
+for(DayOfWeek d:DayOfWeek.values())
+System.out.println(d);
+}
+}
+
+Here we define an enum called "DayOfWeek" that represents the days of the week. The enum has seven
+constants, each representing a day of the week. The constants are defined in all uppercase letters by convention.
+
+5. What are in built annotations in java
+Ans:
+built-in annotations in Java:
+@Override
+@Deprecated
+@SuppressWarnings
+@FunctionalInterface
+@Retention
+@Target
+@Documented
+@Inherited
+These built-in annotations in Java are used to provide additional information to the Java compiler and other
+tools. They help improve code readability, maintainability, and safety by enforcing specific rules and behaviours
+in Java code.
