@@ -1,0 +1,45 @@
+1. What is an interface in Java?
+
+Ans: An interface in Java is a mechanism that is used to achieve complete abstraction. It is basically a kind of
+class that contains only constants and abstract methods.
+
+2. Which modifiers are allowed for methods in an Interface?Explain with an example
+Ans: Only abstract and public modifiers are allowed for methods in interfaces.
+
+3. What is the use of interface in Java?
+Ans: There are many reasons to use interfaces in java. They are as follows:
+a. An interface is used to achieve full abstraction.
+b. Using interfaces is the best way to expose our project’s API to some other project.
+c. Programmers use interfaces to customise features of software differently for different objects.
+d. By using interface, we can achieve the functionality of multiple inheritance.
+
+4. What is the difference between abstract class and interface in Java?
+ans:
+Definition: An abstract class is a class that cannot be instantiated and can contain both abstract and non-abstract methods. An interface, on the other hand, is a contract that specifies a set of methods that a class must implement.
+
+Method implementation: In an abstract class, some methods can be implemented, while others are left abstract, meaning that they have no implementation and must be overridden by concrete subclasses. In contrast, all methods in an interface are by default abstract and must be implemented by any class that implements the interface.
+
+Inheritance: A class can inherit from only one abstract class, but it can implement multiple interfaces. This is because an abstract class represents a type of object, while an interface represents a set of behaviors.
+
+Access modifiers: Abstract classes can have access modifiers such as public, protected, and private for their methods and properties, while interfaces can only have public access.
+
+Variables: An abstract class can have member variables, while an interface cannot
+
+Final Variables: Variables declared in a Java interface are by default final. An abstract class can contain non-final variables.
+Type of variables: Abstract class can have final, non-final, static and non-static variables. The interface has only static and final variables.
+Implementation: Abstract class can provide the implementation of the interface. Interface can’t provide the implementation of an abstract class.
+Inheritance vs Abstraction: A Java interface can be implemented using the keyword “implements” and an abstract class can be extended using the keyword “extends”.
+Multiple implementations: An interface can extend one or more Java interfaces; an abstract class can extend another Java class and implement multiple Java interfaces.
+Multiple Inheritance:  Multiple inheritance can be partially achieved by the use of interfaces , whereas the same can’t be done by the use of abstract classes. 
+                       Because in Java, one class can implement multiple Interfaces, but one class cannot extend from multiple other classes because that’s just not possible in java as that would lead to the diamond problem. 
+Accessibility of Data Members: Members(variables) of a Java interface are final by default. A Java abstract class can have class members like private, protected, etc.
+Features of abstract class:-
+
+An abstract class is a special type of class in object-oriented programming that cannot be instantiated directly. Instead, it serves as a blueprint or template for other classes to be derived from. Some of the key features of an abstract class include:
+Cannot be instantiated: Abstract classes cannot be directly instantiated, which means you cannot create objects of an abstract class.
+Contains at least one pure virtual function: Abstract classes must contain at least one pure virtual function, which means that the function has no implementation and must be implemented by any derived classes.
+Can contain both abstract and non-abstract methods: Abstract classes can have both abstract and non-abstract methods. Non-abstract methods have a complete implementation and can be called directly.
+Can have constructors and destructors: Abstract classes can have constructors and destructors like any other class.
+Can have member variables: Abstract classes can have member variables, which are variables that belong to an object of the class.
+Can be used as a base class: Abstract classes can be used as a base class for other classes, which means that they can be inherited by other classes.
+Overall, abstract classes are used to define a common interface or behavior that can be shared by multiple related classes, but with specific implementations in each derived class.
