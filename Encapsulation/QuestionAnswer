@@ -1,0 +1,205 @@
+Q1 what is encapsulation in java ? why is called data binding?
+ans :
+Encapsulation is a fundamental concept in object-oriented programming (OOP) that refers to the bundling of data and methods that operate on that data within a single unit, which is called a class in Java. 
+Encapsulation is a way of hiding the implementation details of a class from outside access and only exposing a public interface that can be used to interact with the class.
+
+In Java, encapsulation is achieved by declaring the instance variables of a class as private, which means they can only be accessed within the class.
+To allow outside access to the instance variables, public methods called getters and setters are defined, which are used to retrieve and modify the values of the instance variables, respectively.
+By using getters and setters, the class can enforce its own data validation rules and ensure that its internal state remains consistent.
+
+class Person {
+	private String name;
+	private int age;
+
+	public String getName() { return name; }
+
+	public void setName(String name) { this.name = name; }
+
+	public int getAge() { return age; }
+
+	public void setAge(int age) { this.age = age; }
+}
+
+public class Main {
+	public static void main(String[] args)
+	{
+		Person person = new Person();
+		person.setName("John");
+		person.setAge(30);
+
+		System.out.println("Name: " + person.getName());
+		System.out.println("Age: " + person.getAge());
+	}
+}
+
+
+Q2.what is important feature of encapsulation ?
+  ans:
+
+Data Hiding:        
+                        it is a way of restricting the access of our data members by hiding the implementation details. Encapsulation also provides a way for data hiding. The user will have no idea about the inner implementation of the class. 
+                      It will not be visible to the user how the class is storing values in the variables. 
+                       The user will only know that we are passing the values to a setter method and variables are getting initialized with that value.
+Increased Flexibility:    
+                       We can make the variables of the class read-only or write-only depending on our requirements. If we wish to make the variables read-only then we have to omit the setter methods like setName(), setAge(), etc. from the above program or if we wish to make the variables write-only then we have to omit the get methods like getName(), getAge(), etc. from the above program
+Reusability:                
+                       Encapsulation also improves the re-usability and is easy to change with new requirements.
+Testing code is easy:   
+                            Encapsulated code is easy to test for unit testing.
+                                    Freedom to programmer in implementing the details of the system: This is one of the major advantage of encapsulation that it gives the programmer freedom in implementing the details of a system. The only constraint on the programmer is to maintain the abstract interface that outsiders see.  For example, the programmer of the edit menu code in a text-editor GUI might at first, implement the cut and paste operations by copying actual screen images in and out of an external buffer. Later, he/she may be dissatisfied with this implementation, since it does not allow compact storage of the selection, and it does not distinguish text and graphic objects. If the programmer  has designed the cut-and-paste interface with encapsulation in mind, switching the underlying implementation to one that stores text as text and graphic objects in an appropriate compact format should not cause any problems to functions that need to interface with this GUI. Thus encapsulation yields adaptability, for it allows the implementation details of parts of a program to change without adversely affecting other parts. 
+
+
+Q3.what is getter and setter method in java?
+ ans:
+Getter and Setter are those methods in java that are used to retrieve the value of a data member and update or set the value of a data member respectively. Getters are also called accessors and Setters are also called mutators.
+
+Getter and setter in java help in providing data hiding to prevent direct unauthorized access to the variables. By using getter and setter in java we are indirectly accessing the private variables.
+Once defined, getters and setters can be accessed inside the main() method.
+// example 
+class Student {
+
+  //  private variables
+  private String name;
+  private int rollno;
+
+  // setter method to set the name
+  public void setName(String n) {
+    this.name = n;
+  }
+
+  // getter method to retrieve the name
+  public String getName() {
+    return name;
+  }
+
+  // setter method to set the roll number
+  public void setRollno(int r) {
+    this.rollno = r;
+  }
+
+  // getter method to retrieve the roll number
+  public int getRollno() {
+    return rollno;
+  }
+}
+
+public class Main {
+
+  public static void main(String[] args) {
+    // object of the class is created
+    Student s1 = new Student();
+
+    s1.setName("Scaler");
+    s1.setRollno(27);
+
+    // printing the value returned by getName()
+    System.out.println(s1.getName());
+
+    // printing the value returned by getRollno()
+    System.out.println(s1.getRollno());
+  }
+}
+
+
+Q3. what is use of this keyword explain with example ?
+ ans 
+There can be a lot of usage of Java this keyword. In Java, this is a reference variable that refers to the current object.
+Usage of Java this keyword
+Here is given the 6 usage of java this keyword.
+
+this can be used to refer current class instance variable.
+this can be used to invoke current class method (implicitly)
+this() can be used to invoke current class constructor.
+this can be passed as an argument in the method call.
+this can be passed as argument in the constructor call.
+this can be used to return the current class instance from the method.
+
+class Student{  
+int rollno;  
+String name,course;  
+float fee;  
+Student(int rollno,String name,String course){  
+this.rollno=rollno;  
+this.name=name;  
+this.course=course;  
+}  
+Student(int rollno,String name,String course,float fee){  
+this(rollno,name,course);//reusing constructor  
+this.fee=fee;  
+}  
+void display(){System.out.println(rollno+" "+name+" "+course+" "+fee);}  
+}  
+class TestThis7{  
+public static void main(String args[]){  
+Student s1=new Student(111,"ankit","java");  
+Student s2=new Student(112,"sumit","java",6000f);  
+s1.display();  
+s2.display();  
+}}  
+
+
+4Q. what is Advantage of Encapsulation ?
+ans :
+
+ providing only a setter or getter method, you can make the class read-only or write-only. In other words, you can skip the getter or setter methods.
+
+It provides you the control over the data. Suppose you want to set the value of id which should be greater than 100 only, you can write the logic inside the setter method. You can write the logic not to store the negative numbers in the setter methods.
+
+It is a way to achieve data hiding in Java because other class will not be able to access the data through the private data members.
+
+The encapsulate class is easy to test. So, it is better for unit testing.
+
+The standard IDE's are providing the facility to generate the getters and setters. So, it is easy and fast to create an encapsulated class in Java.
+
+
+5Q.how to acheive Encapsulation in java ?
+ans :
+Encapsulation can be achieved by Declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables. 
+It is more defined with the setter and getter method
+
+
+// exaple 
+class Account {
+	// private data members to hide the data
+	private long acc_no;
+	private String name, email;
+	private float amount;
+	// public getter and setter methods
+	public long getAcc_no() { return acc_no; }
+	public void setAcc_no(long acc_no)
+	{
+		this.acc_no = acc_no;
+	}
+	public String getName() { return name; }
+	public void setName(String name) { this.name = name; }
+	public String getEmail() { return email; }
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+	public float getAmount() { return amount; }
+	public void setAmount(float amount)
+	{
+		this.amount = amount;
+	}
+}
+public class test {
+	public static void main(String[] args)
+	{
+		// creating instance of Account class
+		Account acc = new Account();
+		// setting values through setter methods
+		acc.setAcc_no(7310805450L);
+		acc.setName("MD FAIZ");
+		acc.setEmail("mdfaiz689@gmail.com");
+		acc.setAmount(100000f);
+		// getting values through getter methods
+		System.out.println(
+			acc.getAcc_no() + " " + acc.getName() + " "
+			+ acc.getEmail() + " " + acc.getAmount());
+	}
+}
+
+
+
+
