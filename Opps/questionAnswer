@@ -1,0 +1,181 @@
+1. What is Inheritance in Java?
+  Ans: 
+       The technique of creating a new class by using an existing class functionality is called inheritance in Java.
+       In other words, inheritance is a process where a child class acquires all the properties and behaviours of the parent class.
+
+2. What is superclass and subclass??
+  Ans:
+     A class from where a subclass inherits features is called superclass. It is also called base class or parent class.
+     A class that inherits all the members (fields, method, and nested classes) from another class is called a
+     subclass. It is also called a derived class, child class, or extended class.
+
+3. How is Inheritance implemented/achieved in Java?
+  Ans:
+   Inheritance can be implemented or achieved by using two keywords:
+   extends:     extends is a keyword that is used for developing the inheritance between two classes and two interfaces.
+   implements:  implements keyword is used for developing the inheritance between a class and interface.
+
+
+4. What is polymorphism?
+  Ans:
+     Polymorphism in OOP is the ability of an entity to take several forms. In other words, it refers to the ability of an object (or a reference to an object) to take different forms of objects. 
+     It allows a common data-gathering message to be sent to each class. Polymorphism encourages what is called ‘extendibility’ which means an
+     object or a class can have its uses extended.
+
+5. Differentiate between method overloading and method overriding.
+
+  ans
+Method Overloading                                                                         Method Overriding
+Method overloading is a compile-time polymorphism.                              	        Method overriding is a run-time polymorphism.
+Method overloading helps to increase the readability of the program.	                    Method overriding is used to grant the specific implementation of the method which is already provided by its parent class or superclass.
+It occurs within the class.	                                                              It is performed in two classes with inheritance relationships.
+Method overloading may or may not require inheritance.	                                     Method overriding always needs inheritance.
+In method overloading, methods must have the same name and different signatures.      	    In method overriding, methods must have the same name and same signature.
+In method overloading, the return type can or can not be the same, but we just have to change the parameter.	In method overriding, the return type must be the same or co-variant.
+Static binding is being used for overloaded methods.	                                   Dynamic binding is being used for overriding methods.
+Poor Performance due to compile time polymorphism.	                                   It gives better performance. The reason behind this is that the binding of overridden methods is being done at runtime.
+Private and final methods can be overloaded.	                                          Private and final methods can’t be overridden.
+The argument list should be different while doing method overloading.                    	The argument list should be the same in method overriding.
+
+6. What is an abstraction explained with an Example?
+
+ans :
+In Java, abstraction is achieved by interfaces and abstract classes. We can achieve 100% abstraction using interfaces.
+Data Abstraction may also be defined as the process of identifying only the required characteristics of an object ignoring the irrelevant details. 
+The properties and behaviors of an object differentiate it from other objects of similar type and also help in classifying/grouping the objects.
+
+=>Java Abstract classes and Java Abstract methods 
+
+An abstract class is a class that is declared with an abstract keyword.
+An abstract method is a method that is declared without implementation.
+An abstract class may or may not have all abstract methods. Some of them can be concrete methods
+A method-defined abstract must always be redefined in the subclass, thus making overriding compulsory or making the subclass itself abstract.
+Any class that contains one or more abstract methods must also be declared with an abstract keyword.
+There can be no object of an abstract class. That is, an abstract class can not be directly instantiated with the new operator.
+An abstract class can have parameterized constructors and the default constructor is always present in an abstract class.
+
+=>Algorithm to implement abstraction in Java
+   Determine the classes or interfaces that will be part of the abstraction.
+  Create an abstract class or interface that defines the common behaviors and properties of these classes.
+  Define abstract methods within the abstract class or interface that do not have any implementation details.
+  Implement concrete classes that extend the abstract class or implement the interface.
+  Override the abstract methods in the concrete classes to provide their specific implementations.
+Use the concrete classes to implement the program logic.
+
+//Exaple 
+// concept of Abstraction
+abstract class Shape {
+	String color;
+
+	// these are abstract methods
+	abstract double area();
+	public abstract String toString();
+
+	// abstract class can have the constructor
+	public Shape(String color)
+	{
+		System.out.println("Shape constructor called");
+		this.color = color;
+	}
+
+	// this is a concrete method
+	public String getColor()
+     {
+           return color; 
+     }
+}
+
+class Circle extends Shape {
+	double radius;
+
+	public Circle(String color, double radius)
+	{
+
+		// calling Shape constructor
+		super(color);
+		System.out.println("Circle constructor called");
+		this.radius = radius;
+	}
+
+	@Override double area()
+	{
+		return Math.PI * Math.pow(radius, 2);
+	}
+
+	@Override public String toString()
+	{
+		return "Circle color is " + super.getColor()
+			+ "and area is : " + area();
+	}
+}
+class Rectangle extends Shape {
+
+	double length;
+	double width;
+
+	public Rectangle(String color, double length,
+					double width)
+	{
+		// calling Shape constructor
+		super(color);
+		System.out.println("Rectangle constructor called");
+		this.length = length;
+		this.width = width;
+	}
+
+	@Override double area() { return length * width; }
+
+	@Override public String toString()
+	{
+		return "Rectangle color is " + super.getColor()
+			+ "and area is : " + area();
+	}
+}
+public class Test {
+	public static void main(String[] args)
+	{
+		Shape s1 = new Circle("Red", 2.2);
+		Shape s2 = new Rectangle("Yellow", 2, 4);
+
+		System.out.println(s1.toString());
+		System.out.println(s2.toString());
+	}
+}
+
+7. What is the difference between an abstract method and final method in Java?Explain with an example
+   Ans:
+   The abstract method is incomplete while the final method is regarded as complete. The only way to use
+  an abstract method is by overriding it, but you cannot override a final method in Java.
+
+8. What is the final class in Java?
+Ans: 
+A class declared with the final keyword is known as the final class. A final class can’t be inherited by
+subclasses. By using the final class, we can restrict the inheritance of the class. We can create a class as a final
+class only if it is complete in nature, which means it must not be an abstract class. In java, all the wrapper
+classes are final classes like String, Integer, etc.
+If we try to inherit a final class, then the compiler throws an error at compilation time. We can’t create a class as
+immutable without the final class.
+// example
+final class ParentClass
+ {
+    void showData()
+{
+    System.out.println("This is a method of final Parent class");
+   }
+}
+//It will throw compilation error
+class ChildClass extends ParentClass
+ {
+    void showData()
+   {
+        System.out.println("This is a method of Child class");
+     }
+}
+class MainClass
+{
+   public static void main(String arg[])
+  {
+          ParentClass obj = new ChildClass();
+     obj.showData();
+ }
+}
