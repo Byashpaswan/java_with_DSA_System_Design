@@ -1,0 +1,156 @@
+1 what is Constructor  ?
+ans:
+constructors in Java is a terminology used to construct something in our programs. A constructor in Java is a special method that is used to initialize objects. 
+The constructor is called when an object of a class is created. It can be used to set initial values for object attributes.
+// exaple
+// Java Program to demonstrate
+// Constructor
+import java.io.*;
+
+class test {
+	// Constructor
+	test()
+	{
+		super();
+		System.out.println("Constructor Called");
+	}
+
+	// main function
+	public static void main(String[] args)
+	{
+		test t = new test();
+	}
+}
+
+How Java Constructors are Different From Java Methods?
+Constructors must have the same name as the class within which it is defined it is not necessary for the method in Java.
+Constructors do not return any type while method(s) have the return type or void if does not return any value.
+Constructors are called only once at the time of Object creation while method(s) can be called any number of times.
+Now let us come up with the syntax for the constructor being invoked at the time of object or instance creation.
+
+class test
+{   
+  .......
+
+  // A Constructor
+  test() {
+  }
+
+  .......
+}
+
+// We can create an object of the above class
+// using the below statement. This statement
+// calls above constructor.
+test obj = new test(); 
+
+
+2 . what is constructor chaining?
+  ans:
+Constructor chaining is the process of calling one constructor from another constructor with respect to current object. 
+One of the main use of constructor chaining is to avoid duplicate codes while having multiple constructor (by means of constructor overloading) and make code more readable.
+
+Constructor chaining can be done in two ways: 
+ 
+Within same class:     It can be done using this() keyword for constructors in the same class
+From base class:       by using super() keyword to call the constructor from the base class.
+
+Why do we need constructor chaining? 
+This process is used when we want to perform multiple tasks in a single constructor rather than creating a code for each task in a single constructor 
+we create a separate constructor for each task and make their chain which makes the program more readable. 
+
+3. can we call a sub class constructor from super class constructor?
+  ans :
+No, we cannot call subclass constructor from superclass constructor.
+
+
+class SuperClass{
+     SuperClass(){
+        System.out.println("SuperClass constructor");
+        SubClass(); // can'not call
+    }
+}
+public class SubClass extends SuperClass
+{
+    SubClass (){
+        System.out.println("Subclass constructor");
+    }
+	public static void main(String[] args) {
+		System.out.println("Constructor test");
+	}
+}
+
+Output
+
+SubClass.java:11: error: cannot find symbol
+        SubClass();
+        ^
+  symbol:   method Main()
+  location: class SuperClass
+1 error
+
+
+4. what happens if you keep a return  type of constructor?
+  ans:
+ Since constructor can only return the object to class, it's implicitly done by java runtime and we are not supposed to add a return type to it. 
+If we add a return type to a constructor, then it will become a method of the class. This is the way java runtime distinguish between a normal method and a constructor.
+
+public class Main
+{
+    String Main(){
+        System.out.println("Hello World");
+        return "Hello W3spoint.com";
+    }
+	public static void main(String[] args) {
+		Main object = new Main();
+		 System.out.println(object.Main());
+	}
+}
+
+Output
+
+Hello World 
+Hello W3spoint.com
+
+5.what is no arg constructor ?
+  ans:
+No-Arg Constructor - a constructor that does not accept any arguments
+Parameterized constructor - a constructor that accepts arguments
+Default Constructor - a constructor that is automatically created by the Java compiler if it is not explicitly defined.
+
+class Main {
+
+  String language;
+
+  // constructor with no parameter
+  Main() {
+    this.language = "Java";
+  }
+
+  // constructor with a single parameter
+  Main(String language) {
+    this.language = language;
+  }
+
+  public void getName() {
+    System.out.println("Programming Langauage: " + this.language);
+  }
+
+  public static void main(String[] args) {
+
+    // call constructor with no parameter
+    Main obj1 = new Main();
+
+    // call constructor with a single parameter
+    Main obj2 = new Main("Python");
+
+    obj1.getName();
+    obj2.getName();
+  }
+}
+
+
+6. when do we need constructor overloading?
+ans:
+ If we want to have different ways of initializing an object using a different number of parameters,
+
