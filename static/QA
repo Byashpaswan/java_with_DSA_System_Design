@@ -1,0 +1,142 @@
+Q1.why do we need static keyword in java explain ?
+ ans:
+ 
+ The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same variable or method of a given class. 
+ The users can apply static keywords with variables, methods, blocks, and nested classes
+ The static keyword belongs to the class than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
+ TThe static keyword is a non-access modifier in Java that is applicable for the following: 
+
+Blocks
+Variables
+Methods
+Classes
+
+
+Characteristics of static keyword:
+
+Here are some characteristics of the static keyword in Java:
+
+=>Shared memory allocation:                 Static variables and methods are allocated memory space only once during the execution of the program.
+                                            This memory space is shared among all instances of the class, which makes static members useful for maintaining global state or shared functionality.
+                                            
+=>Accessible without object instantiation:   Static members can be accessed without the need to create an instance of the class. 
+                                             This makes them useful for providing utility functions and constants that can be used across the entire program.
+                                                Associated with class, not objects: Static members are associated with the class, not with individual objects. 
+                                              This means that changes to a static member are reflected in all instances of the class, and that you can access static members using the class name rather than an object reference.
+                                              
+=>Cannot access non-static members:          Static methods and variables cannot access non-static members of a class, as they are not associated with any particular instance of the class.
+
+=>Can be overloaded, but not overridden:       Static methods can be overloaded, which means that you can define multiple methods with the same name but different parameters. However,
+                                               they cannot be overridden, as they are associated with the class rather than with a particular instance of the class.
+
+
+// example
+
+// static keyword with methods and variables
+
+// Student class
+class Student {
+	String name;
+	int rollNo;
+
+	// static variable
+	static String cllgName;
+
+	// static counter to set unique roll no
+	static int counter = 0;
+
+	public Student(String name)
+	{
+		this.name = name;
+
+		this.rollNo = setRollNo();
+	}
+
+	// getting unique rollNo
+	// through static variable(counter)
+	static int setRollNo()
+	{
+		counter++;
+		return counter;
+	}
+
+	// static method
+	static void setCllg(String name) { cllgName = name; }
+
+	// instance method
+	void getStudentInfo()
+	{
+		System.out.println("name : " + this.name);
+		System.out.println("rollNo : " + this.rollNo);
+
+		// accessing static variable
+		System.out.println("cllgName : " + cllgName);
+	}
+}
+
+// Driver class
+public class StaticDemo {
+	public static void main(String[] args)
+	{
+		// calling static method
+		// without instantiating Student class
+		Student.setCllg("XYZ");
+
+		Student s1 = new Student("Alice");
+		Student s2 = new Student("Bob");
+
+		s1.getStudentInfo();
+		s2.getStudentInfo();
+	}
+}
+
+Q3.can we mark a local  variable as static ?
+ ans:
+ Unlike C/C++, static local variables are not allowed in Java. For example, following Java program fails in compilation with error “Static local variables are not allowed” 
+  class Test {
+public static void main(String args[]) {
+	System.out.println(fun());
+}
+
+static int fun()
+{
+	static int x= 10; //Error: Static local variables are not allowed
+	return x--;
+}
+}
+
+4.Q why is a static block executed before main method in java ?
+ ans:
+  because the compiler stores them in memory at the time of class loading and before the object creation. 
+  Here, the compiler executes all the static blocks first, and after finishing the static block execution, it invokes the main() method
+
+5.Q why is a static method  also called  class method ?
+    ans:
+    A static method is a method that belongs to a class rather than an instance of a class. This means you can call a static method without creating an object of the class.
+    Static methods are sometimes called class methods.
+
+6.Q difference between static and instance variable ?
+  ans :
+  Static variable	                                                                   Non static variable
+  
+Static variables can be accessed using class name	                                   Non static variables can be accessed using instance of a class
+Static variables can be accessed by static and non static methods	                   Non static variables cannot be accessed inside a static method.
+Static variables reduce the amount of memory used by a program.                    	Non static variables do not reduce the amount of memory used by a program
+In Static variable Memory is allocated only once, at the time of class loading.	    In non Static variable Memory is allocated each time an instance of the class is created.
+Static variables Can be accessed from any part of the program.	                    Non Static variables Can be accessed only within the class or its instance.
+Static variables Exists for the entire lifetime of the program.	                    Non Static variables Exists for the lifetime of the object.
+Static variables Default value is assigned automatically.	                          Non Static variables Default value is not assigned automatically.
+Static variables are shared among all instances of a class.                        	Non static variables are specific to that instance of a class.
+Static variable is like a global variable and is available to all methods.           Non static variable is like a local variable and they can be accessed through only instance of a class.
+
+
+
+7.Q Differentiate between static variable and instance variable.
+  ans :
+
+  Static Variable                                                                	Instance Variable
+Static Variables are declared using keyword 'static'.	                            Instance Variables are declared without using keyword 'static'.
+All objects of a class share the same copy of static variables.                 	Each object of the class gets its own copy of instance variables.
+Static Variables can be accessed using the class name or object.	                 Instance Variables can be accessed only through an object of the class.
+    
+ 
