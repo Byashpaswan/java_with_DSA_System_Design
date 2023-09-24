@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class removeDublicate {
+
+    static void removeDublicate(char[] str) {
+        Map<Character, Integer> exist = new HashMap<>();
+
+        int index = 0;
+        String ans = "";
+
+        for (int i = 1; i < str.length; i++) {
+            // key nhi present ho map me to
+            if (!exist.containsKey(str[i])) {
+                ans += str[i];
+
+                exist.put(str[i], 1);
+
+            }
+        }
+
+        System.out.println(ans);
+    }
+
+    public static void main(String[] args) {
+        String str = "chanchalachal";
+        char[] c = str.toCharArray();
+
+        removeDublicate(c);
+
+    }
+
+}
+
+ 
