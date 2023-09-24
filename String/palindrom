@@ -1,0 +1,24 @@
+
+public class palindrom {
+    static boolean Palindrom(String str) {
+        int begin = 0;
+        int end = str.length() - 1;
+        while (begin < end) {
+            if (str.charAt(begin) != str.charAt(end))
+                return false;
+            begin++;
+            end--;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str1 = "2552";
+
+        boolean ans = Palindrom(str1);
+        System.out.println(str1 + " is palindrom ? :" + ans);
+
+    }
+
+}
