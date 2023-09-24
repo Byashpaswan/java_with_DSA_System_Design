@@ -1,0 +1,32 @@
+public class anagram {
+
+    static final int size = 256;
+
+    static boolean isAnagram(String s1, String s2) {
+        if (s1.length() != s2.length()) // not same length
+            return false;
+
+        int count[] = new int[size];
+        for (int i = 0; i < s1.length(); i++) {
+            count[s1.charAt(i)]++;// ith char index s1 me incement
+            count[s2.charAt(i)]--;// ith char index s2 me decrement
+        }
+
+        for (int i = 0; i < size; i++) {
+            if (count[i] != 0) // yadi any index ka value 0 nahi to
+                return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String s1 = "abaac";
+        String s2 = "aacba";
+
+        if (isAnagram(s1, s2))
+            System.out.println("String is Anagram ");
+        else
+            System.out.println("String is not Anagram ");
+    }
+
+}
