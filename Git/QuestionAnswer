@@ -1,0 +1,101 @@
+Q1.What  is git ?
+ans:
+Git is a version control system for keeping track of changes to files. Using Git lets you always have a record of all adjustments, and return to specific versions 
+when needed. Using it is easy to learn and takes up minimal space with high productivity.  The feature that sets it apart from nearly every other SCM out there is its branching model. 
+What makes Git extremely simple is the ability to merge changes from several people into a single source.  
+You can use GitHub or other online hosts where you can also store backups of your files and their revision history. 
+
+Q2.what do you understands the word 'version control syatem' .
+ ans :
+Version control, also known as source control, is the practice of tracking and managing changes to software code. 
+Version control systems are software tools that help software teams manage changes to source code over time.
+
+Q3. What is github ?
+ ans :
+What is GitHub? GitHub is a web-based version control and collaboration platform for software developers.
+GitHub is a code hosting platform for collaboration and version control.
+GitHub lets you (and others) work together on projects.
+
+Q4.Mention sone git hosting service .
+ ans
+a.GitHub
+b.GitLab
+c.BitBucket
+d.SourceForge
+
+source code hosting services or simply source code managers (SCM) are the services for projects that use different version-control systems (VCS). The latter ones are also sometimes referred to as “version control tools”.
+
+Basically, a VCS is software and, in general, its main task is to allow programmers to track the revisions of a code in course of software development. 
+Such revisions may be shared among all the team members so everyone can see who made a particular change and when. The list of the most popular version control tools includes Git, Mercurial, and Subversion.
+
+At the same time, a source code manager is not software, it’s service. To put it more simply,
+it’s a space to upload copies of source code repositories (i.e. storage location for one project). Unlike version control systems which are just command lines,
+source code hosting service provides a graphical interface.
+Without a source code manager, the work on a software development project would be difficult if possible at
+
+Q5. Different types of version control system ?
+ans 
+ 
+
+Types of Version Control Systems: 
+
+ 1 Local Version Control Systems
+ 2.Centralized Version Control Systems
+ 3.Distributed Version Control Systems
+Local Version Control Systems: =>
+It is one of the simplest forms and has a database that kept all the changes to files under revision control. RCS is one of the most common VCS tools. 
+It keeps patch sets (differences between files) in a special format on disk. By adding up all the patches it can then re-create what any file looked like at any point in time. 
+
+Centralized Version Control Systems: =>
+Centralized version control systems contain just one repository globally and every user need to commit for reflecting one’s changes in the repository. 
+It is possible for others to see your changes by updating. 
+The benefit of CVCS (Centralized Version Control Systems) makes collaboration amongst developers along with providing an insight to a certain extent on what everyone else is doing on the project. 
+It allows administrators to fine-grained control over who can do what. 
+
+It has some downsides as well which led to the development of DVS. The most obvious is the single point of failure that the centralized repository represents if it goes down during that period collaboration and saving versioned changes is not possible. 
+What if the hard disk of the central database becomes corrupted, and proper backups haven’t been kept? You lose absolutely everything. 
+
+Distributed Version Control Systems: =>
+Distributed version control systems contain multiple repositories. Each user has their own repository and working copy. 
+Just committing your changes will not give others access to your changes. This is because commit will reflect those changes in your local repository and you need to push them in order to make them visible on the central repository. 
+Similarly, When you update, you do not get others’ changes unless you have first pulled those changes into your repository. 
+
+To make your changes visible to others, 4 things are required:  
+
+You commit
+You push
+They pull
+They update
+
+Q6 benifit of using git:
+ ans 
+Saves Time=>:
+           Git is lightning fast technology. Each command takes only a few seconds to execute so we can save a lot of time as compared to login to a GitHub account and find out its features.
+Offline Working=>:
+          One of the most important benefits of Git is that it supports offline working. If we are facing internet connectivity issues, it will not affect our work. In Git, we can do almost everything locally. Comparatively, other CVS like SVN is limited and prefer the connection with the central repository.
+Undo Mistakes=>:
+         One additional benefit of Git is we can Undo mistakes. Sometimes the undo can be a savior option for us. Git provides the undo option for almost everything.
+Track the Changes=>:
+        Git facilitates with some exciting features such as Diff, Log, and Status, which allows us to track changes so we can check the status, compare our files or branches.
+
+
+Q7.what is git repository ?
+ ans :
+Repositories in GIT contain a collection of files of various different versions of a Project. These files are imported from the repository into the local server of the user for further updations and modifications in the content of the file
+A VCS or the Version Control System is used to create these versions and store them in a specific place termed a repository.
+The process of copying the content from an existing Git Repository with the help of various Git Tools is termed cloning. Once the cloning process is done, the user gets the complete repository on his local machine.
+Git by default assumes the work to be done on the repository is as a user, once the cloning is done. Users can also create a new repository or delete an existing repository. To delete a repository, 
+the simpler way is to just delete the folder containing the repository. Repositories can be divided into two types based on the usage on a server. These are:
+
+There are a few stages of a file in the working tree of a repository:
+
+Untracked: In this stage, the Git repository is unable to track the file, which means that the file is never staged nor it is committed.
+Tracked: When the Git repository tracks a file, which means the file is committed but is not staged in the working directory.
+Staged: In this stage, the file is ready to be committed and is placed in the staging area waiting for the next commit.
+Modified/Dirty: When the changes are made to the file i.e. the file is modified but the change is not yet staged.
+
+Q8. how can you initialize repository in git ?
+
+Initializing a new repository: git init
+To create a new repo, you'll use the git init command. git init is a one-time command you use during the initial setup of a new repo. 
+Executing this command will create a new .git subdirectory in your current working directory. This will also create a new main branch. 
